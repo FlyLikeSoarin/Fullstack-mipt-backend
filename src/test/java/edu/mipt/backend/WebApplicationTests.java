@@ -1,10 +1,10 @@
-package com.example.demo;
+package edu.mipt.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class WebApplicationTests {
 
     @Test
     void contextLoads() {
