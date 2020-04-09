@@ -46,14 +46,13 @@ public class RoomController {
         return ResponseEntity.status(HttpStatus.OK).body("success");
     }
 
-    @Transactional
     @PostMapping("/api/room/{id}/join")
     public ResponseEntity roomJoin(Principal principal,
                                    @PathVariable("id") Long id,
                                    @RequestParam(name="access_code") String accessCode) {
          Room room = roomRepository.findOneById(id);
          User user = userRepository.findOneByUsername(principal.getName());
-         if (room.users.contains(user)) {
+         if (!room.users.contains(user)) {
              if (room.getAccessCode().equals(accessCode)) {
                  room.users.add(user);
                  roomRepository.save(room);
@@ -115,7 +114,6 @@ public class RoomController {
         if (room.users.contains(user)) {
             return UserResponse.convertList(room.users);
         }
-
         throw new AccessDeniedException("User is not a member of the room");
     }
 

@@ -51,7 +51,5 @@ public class AuthenticationController {
         } catch (UserService.IncorrectPassword e) {
             return new TokenResponse("failure", "incorrect password");
         }
-
-//        return failureResponse;
     }
 }

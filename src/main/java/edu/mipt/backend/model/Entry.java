@@ -28,12 +28,16 @@ public class Entry {
     @Column(name="duration")
     public Long duration;
 
+    @Column(name="timestamp")
+    public Long uploadTimestamp;
+
     public Entry(Room room, User user, String url, String title, Long duration) {
         this.room = room;
         this.user = user;
         this.url = url;
         this.title = title;
         this.duration = duration;
+        this.uploadTimestamp = System.currentTimeMillis();
     }
 
     public Entry() {}
@@ -68,5 +72,13 @@ public class Entry {
 
     public void setDuration(Long duration) {
         this.duration = duration;
+    }
+
+    public Long getUploadTimestamp() {
+        return uploadTimestamp;
+    }
+
+    public void setUploadTimestamp(Long uploadTimestamp) {
+        this.uploadTimestamp = uploadTimestamp;
     }
 }

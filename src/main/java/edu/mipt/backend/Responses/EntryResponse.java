@@ -13,6 +13,7 @@ public class EntryResponse {
         this.url = entry.url;
         this.title = entry.title;
         this.duration = entry.duration;
+        this.uploadTimestamp = entry.uploadTimestamp;
     }
 
     public static Iterable<EntryResponse> convertList(Iterable<Entry> entryList) {
@@ -29,4 +30,5 @@ public class EntryResponse {
     public String url;
     public String title;
     public Long duration;
+    public Long uploadTimestamp;
 }
